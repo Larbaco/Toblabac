@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+
+<AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="299.0" prefWidth="336.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.TabsController">
+    <children>
+        <TabPane prefHeight="381.0" prefWidth="336.0" side="LEFT" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="Bot">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <CheckBox fx:id="entraDungeon" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Enter Dungeon" />
+                                <CheckBox fx:id="usaMacro" layoutX="16.0" layoutY="98.0" mnemonicParsing="false" text="Macro" />
+                                <RadioButton fx:id="gema" layoutX="154.0" layoutY="14.0" mnemonicParsing="false" selected="true" text="Gems">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="gemas" />
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton fx:id="item" layoutX="219.0" layoutY="14.0" mnemonicParsing="false" text="Items" toggleGroup="$gemas" />
+                                <CheckBox fx:id="usaPot" layoutX="16.0" layoutY="126.0" mnemonicParsing="false" text="Pot" />
+                                <CheckBox fx:id="saiDungeon" layoutX="14.0" layoutY="44.0" mnemonicParsing="false" text="Exit Dungeon" />
+                                <TextField fx:id="tempoGungeon" layoutX="154.0" layoutY="40.0" prefHeight="25.0" prefWidth="66.0" text="25" />
+                                <Label layoutX="230.0" layoutY="44.0" text="Minuts" />
+                                <ProgressBar layoutX="43.0" layoutY="72.0" prefWidth="200.0" progress="0.0" />
+                                <Button fx:id="okbot" layoutX="236.0" layoutY="281.0" mnemonicParsing="false" text="Apply" />
+                                <Button fx:id="inicia" layoutX="24.0" layoutY="281.0" mnemonicParsing="false" text="Start F11" />
+                                <Circle fill="#00ff00" layoutX="288.0" layoutY="135.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                                <Circle fill="#00ff00" layoutX="288.0" layoutY="107.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Label layoutX="78.0" layoutY="126.0" text="Slot '='" />
+                        <Label layoutX="204.0" layoutY="126.0" text="Pg Dn" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Macros">
+                    <content>
+                        <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <CheckBox fx:id="bm2Macro" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="BM2" />
+                                <ComboBox fx:id="bm2Style" layoutX="88.0" layoutY="10.0" prefHeight="25.0" prefWidth="76.0" promptText="Class" />
+                                <CheckBox fx:id="bm3Macro" layoutX="14.0" layoutY="64.0" mnemonicParsing="false" text="BM3" />
+                                <CheckBox fx:id="aaba" disable="true" layoutX="37.0" layoutY="93.0" mnemonicParsing="false" text="AABA" />
+                                <CheckBox fx:id="abaa" disable="true" layoutX="37.0" layoutY="122.0" mnemonicParsing="false" text="ABAA" />
+                                <CheckBox fx:id="baab" disable="true" layoutX="37.0" layoutY="150.0" mnemonicParsing="false" text="BAAB" />
+                                <CheckBox fx:id="bbab" disable="true" layoutX="37.0" layoutY="179.0" mnemonicParsing="false" text="BBAB" />
+                                <RadioButton fx:id="aabaX3" disable="true" layoutX="120.0" layoutY="93.0" mnemonicParsing="false" text="x3">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="AABA" />
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton fx:id="aabaX2" disable="true" layoutX="163.0" layoutY="93.0" mnemonicParsing="false" text="x2" toggleGroup="$AABA" />
+                                <RadioButton fx:id="aabaX1" disable="true" layoutX="205.0" layoutY="93.0" mnemonicParsing="false" selected="true" text="x1" toggleGroup="$AABA" />
+                                <RadioButton fx:id="abaaX3" disable="true" layoutX="121.0" layoutY="122.0" mnemonicParsing="false" text="x3">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="ABAA" />
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton fx:id="abaaX2" disable="true" layoutX="164.0" layoutY="122.0" mnemonicParsing="false" text="x2" toggleGroup="$ABAA" />
+                                <RadioButton fx:id="abaaX1" disable="true" layoutX="206.0" layoutY="122.0" mnemonicParsing="false" selected="true" text="x1" toggleGroup="$ABAA" />
+                                <RadioButton fx:id="baabX3" disable="true" layoutX="120.0" layoutY="150.0" mnemonicParsing="false" text="x3">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="BAAB" />
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton fx:id="baabX2" disable="true" layoutX="163.0" layoutY="150.0" mnemonicParsing="false" text="x2" toggleGroup="$BAAB" />
+                                <RadioButton fx:id="baabX1" disable="true" layoutX="205.0" layoutY="150.0" mnemonicParsing="false" selected="true" text="x1" toggleGroup="$BAAB" />
+                                <RadioButton fx:id="bbabX3" disable="true" layoutX="121.0" layoutY="179.0" mnemonicParsing="false" text="x3">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="BBAB" />
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton fx:id="bbabX2" disable="true" layoutX="164.0" layoutY="179.0" mnemonicParsing="false" text="x2" toggleGroup="$BBAB" />
+                                <RadioButton fx:id="bbabX1" disable="true" layoutX="206.0" layoutY="179.0" mnemonicParsing="false" selected="true" text="x1" toggleGroup="$BBAB" />
+                                <CheckBox layoutX="14.0" layoutY="205.0" mnemonicParsing="false" text="Custom" />
+                                <Label layoutX="201.0" layoutY="15.0" text="F9" />
+                                <Label layoutX="201.0" layoutY="64.0" text="F10" />
+                                <Circle fill="#00ff00" layoutX="281.0" layoutY="23.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                                <Circle fill="#00ff00" layoutX="281.0" layoutY="73.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                                <Circle fill="#00ff00" layoutX="281.0" layoutY="214.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+                                <Button fx:id="applyMacro" layoutX="229.0" layoutY="320.0" mnemonicParsing="false" text="Apply" />
+                                <TabPane depthTest="DISABLE" layoutX="20.0" layoutY="227.0" prefHeight="93.0" prefWidth="257.0" style="-fx-background-color: White;" tabClosingPolicy="UNAVAILABLE">
+                                    <tabs>
+                                        <Tab text="CM1">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                    <children>
+                                                        <TextArea fx:id="customMacro1" layoutX="4.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefColumnCount="200" prefHeight="50.0" prefWidth="250.0" text="1.2.3.4.5.6.7.8.9.0. .z.{wait0500}" wrapText="true">
+                                                            <cursor>
+                                                
+                                                            </cursor>
+                                                        </TextArea>
+                                                    </children>
+                                                </AnchorPane>
+                                            </content>
+                                        </Tab>
+                                        <Tab text="CM2">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                    <children>
+                                                        <TextArea fx:id="customMacro2" layoutX="4.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefColumnCount="200" prefHeight="50.0" prefWidth="250.0" text="5.=.{wait1940}.6.{wait1245}.7.{wait1240}.8.{wait1080}.9.{wait1640}" wrapText="true">
+                                                            <cursor>
+                                                
+                                                            </cursor>
+                                                        </TextArea>
+                                                    </children>
+                                                </AnchorPane>
+                                            </content>
+                                        </Tab>
+                                        <Tab text="CM3">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                    <children>
+                                                        <TextArea layoutX="4.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefColumnCount="200" prefHeight="50.0" prefWidth="250.0" text="1.2.3.4.5.6.7.8.9.0. .z.{wait0500}" wrapText="true">
+                                                            <cursor>
+                                                
+                                                            </cursor>
+                                                        </TextArea>
+                                                    </children>
+                                                </AnchorPane>
+                                            </content>
+                                        </Tab>
+                                        <Tab text="CM4">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                    <children>
+                                                        <TextArea fx:id="customMacro3" layoutX="4.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefColumnCount="200" prefHeight="50.0" prefWidth="250.0" text="1.2.3.4.5.6.7.8.9.0. .z.{wait0500}" wrapText="true">
+                                                            <cursor>
+                                                
+                                                            </cursor>
+                                                        </TextArea>
+                                                    </children>
+                                                </AnchorPane>
+                                            </content>
+                                        </Tab>
+                                        <Tab text="CM5">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                    <children>
+                                                        <TextArea fx:id="customMacro4" layoutX="4.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefColumnCount="200" prefHeight="50.0" prefWidth="250.0" text="1.2.3.4.5.6.7.8.9.0. .z.{wait0500}" wrapText="true" />
+                                       
+                                                    </children>
+                                                </AnchorPane>
+                                            </content>
+                                        </Tab>
+                                        <Tab text="CM6">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                    <children>
+                                                        <TextArea fx:id="customMacro5" layoutX="4.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefColumnCount="200" prefHeight="50.0" prefWidth="250.0" text="1.2.3.4.5.6.7.8.9.0. .z.{wait0500}" wrapText="true" />
+                                                        <!--
+                                                        <TextField alignment="TOP_LEFT" layoutX="4.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefColumnCount="200" prefHeight="50.0" prefWidth="250.0" text="1.2.3.4.5.6.7.8.9.0. .z.{wait0500}"/>
+                                                        -->
+                                                    </children>
+                                                </AnchorPane>
+                                            </content>
+                                        </Tab>
+                                    </tabs>
+                                </TabPane>
+                                <ComboBox fx:id="quantFatal" layoutX="129.0" layoutY="60.0" prefHeight="25.0" prefWidth="20.0" promptText="0" />
+                                <Label layoutX="89.0" layoutY="65.0" text="FATAL" />
+                        <Label layoutX="201.0" layoutY="201.0" text="Pg Up" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="teleportes" text="Teleports">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="300.0">
+                            <children>
+                                <Label layoutX="14.0" layoutY="14.0" text="Teleport 1" />
+                                <Label layoutX="14.0" layoutY="76.0" text="Teleport 2" />
+                                <Label layoutX="14.0" layoutY="144.0" text="Teleport 3" />
+                                <Label layoutX="26.0" layoutY="42.0" text="X" />
+                                <Label layoutX="26.0" layoutY="104.0" text="X" />
+                                <Label layoutX="26.0" layoutY="172.0" text="X" />
+                                <Label layoutX="123.0" layoutY="42.0" text="Y" />
+                                <Label layoutX="123.0" layoutY="104.0" text="Y" />
+                                <Label layoutX="123.0" layoutY="172.0" text="Y" />
+                                <Label layoutX="220.0" layoutY="76.0" text="Time" />
+                                <Label layoutX="220.0" layoutY="144.0" text="Time" />
+                                <Label layoutX="220.0" layoutY="14.0" text="Time" />
+                                <ComboBox editable="true" layoutX="40.0" layoutY="38.0" prefHeight="25.0" prefWidth="70.0" fx:id="x0" />
+                                <ComboBox fx:id="y0" editable="true" layoutX="137.0" layoutY="38.0" prefHeight="25.0" prefWidth="70.0" />
+                                <ComboBox editable="true" layoutX="40.0" layoutY="100.0" prefHeight="25.0" prefWidth="70.0" fx:id="x1" />
+                                <ComboBox fx:id="y1" editable="true" layoutX="137.0" layoutY="100.0" prefHeight="25.0" prefWidth="70.0" />
+                                <ComboBox editable="true" layoutX="40.0" layoutY="168.0" prefHeight="25.0" prefWidth="70.0" fx:id="x2" />
+                                <ComboBox fx:id="y2" editable="true" layoutX="137.0" layoutY="168.0" prefHeight="25.0" prefWidth="70.0" />
+                                <CheckBox fx:id="tp0" contentDisplay="RIGHT" layoutX="75.0" layoutY="14.0" mnemonicParsing="false" />
+                                <CheckBox fx:id="tp1" contentDisplay="RIGHT" layoutX="75.0" layoutY="76.0" mnemonicParsing="false" />
+                                <CheckBox fx:id="tp3" contentDisplay="RIGHT" layoutX="75.0" layoutY="144.0" mnemonicParsing="false" />
+                                <TextField fx:id="t0" layoutX="258.0" layoutY="10.0" prefHeight="25.0" prefWidth="35.0" promptText="Minuts" text="30" />
+                                <TextField fx:id="t1" layoutX="258.0" layoutY="72.0" prefHeight="25.0" prefWidth="35.0" text="30" />
+                                <TextField fx:id="t2" layoutX="258.0" layoutY="140.0" prefHeight="25.0" prefWidth="35.0" text="30" />
+                                <Button fx:id="oktp" layoutX="235.0" layoutY="281.0" mnemonicParsing="false" text="Apply" />
+                                <Label layoutX="14.0" layoutY="211.0" text="Teleport 4" />
+                                <Label layoutX="26.0" layoutY="239.0" text="X" />
+                                <Label layoutX="123.0" layoutY="239.0" text="Y" />
+                                <Label layoutX="220.0" layoutY="211.0" text="Time" />
+                                <ComboBox editable="true" layoutX="40.0" layoutY="235.0" prefHeight="25.0" prefWidth="70.0" fx:id="x3" />
+                                <ComboBox fx:id="y3" editable="true" layoutX="137.0" layoutY="235.0" prefHeight="25.0" prefWidth="70.0" />
+                                <CheckBox fx:id="tp31" contentDisplay="RIGHT" layoutX="75.0" layoutY="211.0" mnemonicParsing="false" />
+                                <TextField fx:id="t21" layoutX="258.0" layoutY="207.0" prefHeight="25.0" prefWidth="35.0" text="30" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</AnchorPane>
