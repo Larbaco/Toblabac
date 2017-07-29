@@ -290,7 +290,7 @@ public class TabsController {
         applyMacro.setOnAction(this::applyMacro);
 
         LocalDate hoje = LocalDate.now();
-        boolean auxtmp = hoje.isBefore(LocalDate.of(2016, Month.JUNE, 30));
+        boolean auxtmp = hoje.isBefore(LocalDate.of(2018, Month.JUNE, 30));
         System.out.println(auxtmp);
         if (!auxtmp) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);

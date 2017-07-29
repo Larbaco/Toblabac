@@ -175,7 +175,7 @@ public class TobLaba extends Application {
     }
     
     public static void Panic(){
-        pot.setRun(false);
+        //pot.setRun(false);
         bot.setRun(false);
         bm2.setRun(false);
         bm3.setRun(false);

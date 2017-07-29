@@ -306,6 +306,12 @@ public class Macros extends Thread {
     }
 
     public void setRun(boolean b) {
+        //java.awt.Toolkit.getDefaultToolkit().beep();
+        if(b) {
+            Sound.beep(70000, 100);
+        }else{
+            Sound.beep(7000, 100);
+        }
         run = b;
     }
 
