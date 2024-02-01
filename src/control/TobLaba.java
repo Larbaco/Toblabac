@@ -18,6 +18,7 @@ import javafx.stage.WindowEvent;
 import model.BM3;
 import model.Macros;
 import model.KeyboardHook;
+import model.WebServer;
 import view.TabsController;
 
 /**
@@ -51,10 +52,12 @@ public class TobLaba extends Application {
     public static Macros bm3;
     public static Macros bot;
     public static Macros custom;
+    public static Macros captura;
+    public static Macros quebra;
     private static KeyboardHook hook;
 
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) throws IOException {
 
         Runtime.getRuntime().addShutdownHook(new Thread() {
             @Override
@@ -84,7 +87,7 @@ public class TobLaba extends Application {
      * @param args the command line arguments
      * @throws java.awt.AWTException
      */
-    public static void main(String[] args) throws AWTException {
+    public static void main(String[] args) throws AWTException, IOException {
         bm2 = new Macros(1);
         bm2.start();
         bm3 = new Macros(3);
@@ -95,6 +98,14 @@ public class TobLaba extends Application {
         pot.start();
         bot = new Macros(4);
         bot.start();
+        captura = new Macros(7);
+        captura.start();
+        quebra = new Macros(6);
+        quebra.start();
+
+
+        WebServer wsv = new WebServer();
+        wsv.run();
         launch(args);
     }
 
@@ -172,6 +183,10 @@ public class TobLaba extends Application {
     public static void toogleBot() {
         bot.setRun(!bot.getRun());
         System.out.println(bot.getRun());
+    }
+    public static void toogleQuebra() {
+        quebra.setRun(!quebra.getRun());
+        System.out.println(quebra.getRun());
     }
     
     public static void Panic(){

@@ -45,7 +45,7 @@
                         </AnchorPane>
                     </content>
                 </Tab>
-                <Tab text="Macros">
+                <Tab text="Macros da SenXorar">
                     <content>
                         <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="200.0">
                             <children>

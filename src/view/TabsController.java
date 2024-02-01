@@ -180,7 +180,7 @@ public class TabsController {
     @FXML
     private void initialize() {
 
-        TobLaba.atualizaCustom("1.2.3.4.5.6.7.8.9.0. .z.{wait0050}");
+        TobLaba.atualizaCustom("1. .z.{wait0500}");
         
         //System.out.println(mainApp.eixos.toString());
         tele0 = new Teleport(0, 0, 9999);

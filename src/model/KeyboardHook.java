@@ -6,16 +6,16 @@
 package model;
 
 import control.TobLaba;
-
-import java.awt.AWTException;
-import java.awt.event.KeyEvent;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import lc.kra.system.keyboard.GlobalKeyboardHook;
-
 import lc.kra.system.keyboard.event.GlobalKeyAdapter;
 import lc.kra.system.keyboard.event.GlobalKeyEvent;
+
+import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.time.Duration;
+import java.time.Instant;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author Desk
@@ -24,6 +24,8 @@ public class KeyboardHook extends Thread {
 
     public static boolean executa = true;
     private static GlobalKeyboardHook keyboardHook;
+    static Instant start = Instant.now();
+    static Instant end;
 
     @Override
     public void run() {
@@ -33,12 +35,12 @@ public class KeyboardHook extends Thread {
             Logger.getLogger(KeyboardHook.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    
     private static void iniciaKeyboardHook() throws AWTException {
         Robo robo = new Robo();
         keyboardHook = new GlobalKeyboardHook();
 
-        System.out.println("Hook Inicialized");
+        System.out.println("Hook Inicialized.");
         keyboardHook.addKeyListener(
                 new GlobalKeyAdapter() {
                     @Override
@@ -98,6 +100,8 @@ public class KeyboardHook extends Thread {
                         }
                         if (event.getVirtualKeyCode() == GlobalKeyEvent.VK_HOME) {
                             System.out.println("Home");
+                            System.out.println("Ativando quebra");
+                            TobLaba.toogleQuebra();
                         }
                         if (event.getVirtualKeyCode() == GlobalKeyEvent.VK_DELETE) {
                             System.out.println("Delete");
@@ -118,11 +122,18 @@ public class KeyboardHook extends Thread {
                         }
                         if (event.getVirtualKeyCode() == GlobalKeyEvent.VK_F11) {
                             System.out.println("Bot S1");
-                            TobLaba.toogleBot();
+                            //TobLaba.toogleBot();
                         }
                         if (event.getVirtualKeyCode() == GlobalKeyEvent.VK_F12) {
                             System.out.println("F12");
                             TobLaba.fechar();
+                        }
+
+                        if (event.getVirtualKeyCode() == GlobalKeyEvent.VK_0) {
+                            end = Instant.now();
+                            Duration timeElapsed = Duration.between(start, end);
+                            System.out.println(timeElapsed);
+                            start = end;
                         }
                     }
 
@@ -148,4 +159,6 @@ public class KeyboardHook extends Thread {
     public static void panic() {
         keyboardHook.shutdownHook();
     }
+
+    
 }

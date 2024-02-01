@@ -1,35 +1,38 @@
 package model;
 
-import java.awt.AWTException;
-import java.awt.Robot;
+import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.event.InputEvent;
-import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 /**
  * A Java Robot example class.
- *
+ * <p>
  * Caution: Using the Java Robot class improperly can cause a lot of system
  * problems. I had to reboot my Mac ~10 times yesterday while trying to debug
  * this code.
- *
+ * <p>
  * I created this class to demonstrate the Java Robot class on a Mac OS X
  * system, though it should run on Linux or Windows as well.
- *
+ * <p>
  * On a Mac system, I place the TextEdit text editor in the upper-left corner of
  * the screen, and put a bunch of blank lines in the editor. Then I run this
  * Java Robot example from Eclipse or the Unix command line.
- *
+ * <p>
  * It types the three strings shown in the code below into the text editor.
- *
+ * <p>
  * Many thanks to the people on the Mac Java-dev mailing list for your help.
  *
  * @author Alvin Alexander,
  * <a href="http://devdaily.com" title="http://devdaily.com">http://devdaily.com</a>
- *
  */
 public class Robo {
 
     Robot robot = new Robot();
+    String localPath;
 
     public Robo() throws AWTException {
         /**
@@ -55,6 +58,8 @@ public class Robo {
          *
          * robot.delay(1000); System.exit(0); **
          */
+        Path currentRelativePath = Paths.get("");
+        localPath = currentRelativePath.toAbsolutePath().toString();
     }
 
     public void delay(int ms) {
@@ -88,7 +93,7 @@ public class Robo {
         robot.delay(50);
         robot.mousePress(InputEvent.BUTTON3_DOWN_MASK);
         robot.delay(50);
-        robot.mouseMove(x2,y2);
+        robot.mouseMove(x2, y2);
         robot.delay(50);
         robot.mouseRelease(InputEvent.BUTTON3_DOWN_MASK);
         robot.delay(50);
@@ -142,6 +147,16 @@ public class Robo {
             robot.keyRelease(code);
         }
         robot.delay(100);
+    }
+
+    void capture() {
+        Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
+        try {
+            BufferedImage capture = new Robot().createScreenCapture(screenRect);
+            ImageIO.write(capture, "bmp", new File(localPath+"\\save.bmp"));
+        } catch (Exception e) {
+            System.out.println("Deu ruim pra capturar imagem");
+        }
     }
 
     // 
