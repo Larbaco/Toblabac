@@ -7,6 +7,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.logging.Logger;
 
 /**
  * A Java Robot example class.
@@ -33,6 +34,8 @@ public class Robo {
 
     Robot robot = new Robot();
     String localPath;
+
+    public static final Logger logger = Logger.getLogger("RoboLogger");
 
     public Robo() throws AWTException {
         /**
@@ -154,8 +157,11 @@ public class Robo {
         try {
             BufferedImage capture = new Robot().createScreenCapture(screenRect);
             ImageIO.write(capture, "bmp", new File(localPath+"\\save.bmp"));
+            //log that the capture was saved
+            logger.info("Capture saved");
         } catch (Exception e) {
-            System.out.println("Deu ruim pra capturar imagem");
+            //System.out.println("Deu ruim pra capturar imagem");
+            logger.warning("Error saving capture");
         }
     }
 

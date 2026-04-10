@@ -26,6 +26,8 @@ public class KeyboardHook extends Thread {
     private static GlobalKeyboardHook keyboardHook;
     static Instant start = Instant.now();
     static Instant end;
+    public static int coordX;
+    public static int coordY;
 
     @Override
     public void run() {
@@ -35,7 +37,7 @@ public class KeyboardHook extends Thread {
             Logger.getLogger(KeyboardHook.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     private static void iniciaKeyboardHook() throws AWTException {
         Robo robo = new Robo();
         keyboardHook = new GlobalKeyboardHook();
@@ -44,47 +46,46 @@ public class KeyboardHook extends Thread {
         keyboardHook.addKeyListener(
                 new GlobalKeyAdapter() {
                     @Override
-                    public void keyPressed(GlobalKeyEvent event
-                    ) {
-                        //System.out.println(event);
+                    public void keyPressed(GlobalKeyEvent event) {
+                        // System.out.println(event);
                         if (event.getVirtualKeyCode() == GlobalKeyEvent.VK_ESCAPE) {
                             System.out.println("ESC");
                             System.out.println("Panic Key!");
                             TobLaba.Panic();
 
-                            //executa = false;
-                        }/*
-                if (event.getVirtualKeyCode() == GlobalKeyEvent.VK_NUMPAD1) {
-                    System.out.println("1");
-                    for (int i = 0; i < 3; i++) {
-
-                        robo.type(GlobalKeyEvent.VK_5, 0);
-                        robo.delay(1930);
-                        robo.type(GlobalKeyEvent.VK_6, 0);
-                        robo.delay(1230);
-                        robo.type(GlobalKeyEvent.VK_7, 0);
-                        robo.delay(1230);
-                        robo.type(GlobalKeyEvent.VK_8, 0);
-                        robo.delay(1060);
-                        robo.type(GlobalKeyEvent.VK_9, 0);
-                        robo.delay(1630);
-
-                    }
-
-                    // robo.type("Ola mundo");
-                }
-                if (event.getVirtualKeyCode() == GlobalKeyEvent.VK_NUMPAD2) {
-                    System.out.println(GlobalKeyEvent.VK_RETURN);
-                    robo.type(KeyEvent.VK_ENTER, 0);
-                    robo.type("O will e um viadao");
-                    robo.type(KeyEvent.VK_ENTER, 0);
-
-                }
-                if (event.getVirtualKeyCode() == GlobalKeyEvent.VK_NUMPAD3) {
-                    System.out.println("3");
-
-                }
-                */
+                            // executa = false;
+                        } /*
+                           * if (event.getVirtualKeyCode() == GlobalKeyEvent.VK_NUMPAD1) {
+                           * System.out.println("1");
+                           * for (int i = 0; i < 3; i++) {
+                           * 
+                           * robo.type(GlobalKeyEvent.VK_5, 0);
+                           * robo.delay(1930);
+                           * robo.type(GlobalKeyEvent.VK_6, 0);
+                           * robo.delay(1230);
+                           * robo.type(GlobalKeyEvent.VK_7, 0);
+                           * robo.delay(1230);
+                           * robo.type(GlobalKeyEvent.VK_8, 0);
+                           * robo.delay(1060);
+                           * robo.type(GlobalKeyEvent.VK_9, 0);
+                           * robo.delay(1630);
+                           * 
+                           * }
+                           * 
+                           * // robo.type("Ola mundo");
+                           * }
+                           * if (event.getVirtualKeyCode() == GlobalKeyEvent.VK_NUMPAD2) {
+                           * System.out.println(GlobalKeyEvent.VK_RETURN);
+                           * robo.type(KeyEvent.VK_ENTER, 0);
+                           * robo.type("O will e um viadao");
+                           * robo.type(KeyEvent.VK_ENTER, 0);
+                           * 
+                           * }
+                           * if (event.getVirtualKeyCode() == GlobalKeyEvent.VK_NUMPAD3) {
+                           * System.out.println("3");
+                           * 
+                           * }
+                           */
                         if (event.getVirtualKeyCode() == KeyEvent.VK_PAGE_DOWN) {
                             System.out.println("Page Down");
                             System.out.println("Macro Pot");
@@ -97,6 +98,11 @@ public class KeyboardHook extends Thread {
                         }
                         if (event.getVirtualKeyCode() == GlobalKeyEvent.VK_END) {
                             System.out.println("End");
+                            int[] xy = getCoordXY();
+                            System.out.println("X: " + xy[0] + " Y: " + xy[1]);
+                            Color dominant = Bot.identify();
+                            System.out.println("The dominant color is :" + dominant);
+
                         }
                         if (event.getVirtualKeyCode() == GlobalKeyEvent.VK_HOME) {
                             System.out.println("Home");
@@ -122,7 +128,7 @@ public class KeyboardHook extends Thread {
                         }
                         if (event.getVirtualKeyCode() == GlobalKeyEvent.VK_F11) {
                             System.out.println("Bot S1");
-                            //TobLaba.toogleBot();
+                            // TobLaba.toogleBot();
                         }
                         if (event.getVirtualKeyCode() == GlobalKeyEvent.VK_F12) {
                             System.out.println("F12");
@@ -138,12 +144,10 @@ public class KeyboardHook extends Thread {
                     }
 
                     @Override
-                    public void keyReleased(GlobalKeyEvent event
-                    ) {
-                        //System.out.println(event);
+                    public void keyReleased(GlobalKeyEvent event) {
+                        // System.out.println(event);
                     }
-                }
-        );
+                });
 
         try {
             while (executa) {
@@ -156,9 +160,37 @@ public class KeyboardHook extends Thread {
         }
     }
 
+    public static void setCoordX(int x){
+        coordX = x;
+    }
+
+    public static void setCoordY(int y){
+        coordY = y;
+    }
+
+    public static int getCoordX(){
+        return coordX;
+    }
+
+    public static int getCoordY(){
+        return coordY;
+    }
+
+    public static void setCoordXY(int x, int y){
+        coordX = x;
+        coordY = y;
+    }
+
+    //Return xy
+    public static int[] getCoordXY(){
+        int[] xy = new int[2];
+        xy[0] = coordX;
+        xy[1] = coordY;
+        return xy;
+    }
+
     public static void panic() {
         keyboardHook.shutdownHook();
     }
 
-    
 }
