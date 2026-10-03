@@ -98,8 +98,10 @@ public class TobLaba extends Application {
         pot.start();
         bot = new Macros(4);
         bot.start();
-        captura = new Macros(7);
-        captura.start();
+        if (envTruthy("TOBLABAC_CAPTURE")) {
+            captura = new Macros(7);
+            captura.start();
+        }
         quebra = new Macros(6);
         quebra.start();
 
@@ -107,6 +109,15 @@ public class TobLaba extends Application {
         WebServer wsv = new WebServer();
         wsv.run();
         launch(args);
+    }
+
+    private static boolean envTruthy(String name) {
+        String v = System.getenv(name);
+        if (v == null) {
+            return false;
+        }
+        v = v.trim().toLowerCase();
+        return v.equals("1") || v.equals("true") || v.equals("yes") || v.equals("on");
     }
 
     /**
