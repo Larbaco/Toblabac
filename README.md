@@ -13,6 +13,7 @@ O projeto foi construído em **Java 8+** usando **JavaFX** para a interface grá
 - A classe principal do projeto (Ponto de entrada) é: `src/control/TobLaba.java`.
 - Se você for rodar via **VS Code** ou **Eclipse**, certifique-se de adicionar todos os `.jar` da pasta `lib/` no Classpath do seu projeto.
 - Execute a classe `TobLaba.java` e a interface vai se abrir.
+- Via launcher Cabal (`toblabac.sh`): heap padrão `-Xmx1g` (`java-opts.sh`); override com `TOBLABAC_JAVA_OPTS` (ex.: `-Xmx768m`). Ver `docs/launcher-heap.md`.
 
 > ⚠️ **Atenção (Kill Switch):**
 > O código possui uma data de validade travada em **30 de Junho de 2025** em `src/view/TabsController.java`. Passado dessa data, o app vai exibir um "Expired Use!" e fechar. Se precisar usar depois disso, é só alterar essa validação na linha ~292.
